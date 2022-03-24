@@ -1,4 +1,7 @@
 ---
+iptables_dependencies:
+  - iptables-persistent
+
 # Default head (allow) rules
 iptables_default_head: |
   -N sshguard

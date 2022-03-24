@@ -1,3 +1,13 @@
+- name: Ensure dependencies are present
+  package:
+    pkg: "{{ iptables_dependencies }}"
+    state: present
+  when: iptables_dependencies is defined
+  retries: 2
+  delay: 5
+  tags:
+    - iptables
+
 - name: Set custom iptables rules
   iptables_raw:
     name: 'iptables_custom_rules_{{ item.name }}'
